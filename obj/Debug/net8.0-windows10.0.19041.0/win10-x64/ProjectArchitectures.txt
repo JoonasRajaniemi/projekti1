@@ -1,0 +1,1 @@
+C:\Users\joona\source\repos\MyHybridApp\MyHybridApp\MyHybridApp.csproj;x64
