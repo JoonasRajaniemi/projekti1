@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MyHybridApp.ViewModels"
+             xmlns:local="clr-namespace:MyHybridApp"
+             x:Class="MyHybridApp.Views.ItemsListPage"
+             x:DataType="vm:ItemListViewModel"
+             Title="To do lista"
+             BindingContext="{x:Static local:App.MainViewModel}" >
+    <StackLayout>
+        <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" Margin="10" ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding name}" x:DataType="vm:ItemViewModel">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItem_Clicked"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Style="{StaticResource MyButtonStyle}" Margin="10" Text="Add" Clicked="Add_Button_Clicked">
+        </Button>
+        <Button Style="{StaticResource MyButtonStyle}" Margin="10" Text="Save" Clicked="Save_Button_Clicked"/>
+        <Button Style="{StaticResource MyButtonStyle}" Margin="10" Text="Info" Clicked="Info_Button_Clicked"/>
+    </StackLayout>
+
+
+
+
+</ContentPage>
